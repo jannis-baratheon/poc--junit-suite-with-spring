@@ -1,10 +1,8 @@
 package it.jwisnowski.example.junitsuitewithspring.dockers;
 
-import java.io.Closeable;
-import java.io.IOException;
 import java.util.UUID;
 
-public class ADockerContainer implements Closeable {
+public class ADockerContainer {
     private UUID data;
 
     public void start() {
@@ -20,8 +18,11 @@ public class ADockerContainer implements Closeable {
         return data.toString();
     }
 
-    @Override
-    public void close() throws IOException {
-        stop();
+    public String getHost() {
+        return "localhost";
+    }
+
+    public int getPort() {
+        return 123;
     }
 }
